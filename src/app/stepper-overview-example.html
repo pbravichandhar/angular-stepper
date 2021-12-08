@@ -8,14 +8,40 @@
       <ng-template matStepLabel>Personal Details</ng-template>
       <div>
         <mat-form-field appearance="fill">
-          <mat-label>Name</mat-label>
-          <input matInput placeholder="Last name, First name" formControlName="nameCtrl" required />
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last name" formControlName="lastNameCtrl" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="dobPicker" formControlName="dobCtrl" required>
+          <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+          <mat-datepicker #dobPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First name" formControlName="firstNameCtrl" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Driving Licence</mat-label>
+          <input matInput placeholder="Driving Licence" formControlName="dlCtrl" required />
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="fill">
           <mat-label>Email</mat-label>
           <input matInput placeholder="email" formControlName="emailCtrl" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="phone" formControlName="phoneCtrl" required />
         </mat-form-field>
       </div>
 
@@ -28,8 +54,14 @@
 
       <div>
         <mat-form-field appearance="fill">
-          <mat-label>Country</mat-label>
-          <input matInput placeholder="Country" formControlName="countryCtrl" required />
+          <mat-label>Zip</mat-label>
+          <input matInput placeholder="Zip Code" formControlName="zipCtrl" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>UDF</mat-label>
+          <input matInput placeholder="UDF" formControlName="udfCtrl" required />
         </mat-form-field>
       </div>
       <div>
@@ -55,6 +87,18 @@
         </mat-form-field>
       </div>
 
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>City</mat-label>
+          <input matInput formControlName="cityCtrl" placeholder="City" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>State</mat-label>
+          <input matInput formControlName="stateCtrl" placeholder="State" required />
+        </mat-form-field>
+      </div>
       <div>
         <mat-form-field appearance="fill">
           <mat-label>Zip Code</mat-label>
@@ -83,6 +127,25 @@
           <input matInput formControlName="bloodGroupCtrl" placeholder="O+ve, B+ve" required />
         </mat-form-field>
       </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Systolic blood pressure</mat-label>
+          <input matInput formControlName="sbCtrl" placeholder="Systolic blood pressure" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Diastolic blood pressure</mat-label>
+          <input matInput formControlName="dbpCtrl" placeholder="Diastolic blood pressure" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Pulse Rate</mat-label>
+          <input matInput formControlName="prCtrl" placeholder="Pulse Rate" required />
+        </mat-form-field>
+      </div>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
@@ -102,6 +165,14 @@
         <mat-form-field appearance="fill">
           <mat-label>Policy Number</mat-label>
           <input matInput formControlName="policyCtrl" placeholder="Policy Number" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Expiry Date</mat-label>
+          <input matInput [matDatepicker]="expiryDatePicker" formControlName="expiryCtrl" required>
+          <mat-datepicker-toggle matSuffix [for]="expiryDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #expiryDatePicker></mat-datepicker>
         </mat-form-field>
       </div>
       
