@@ -1,27 +1,122 @@
+`
 <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button>
 <mat-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
+  <mat-step [stepControl]="personDetailsFormGroup">
+    <form [formGroup]="personDetailsFormGroup">
+      <ng-template matStepLabel>Personal Details</ng-template>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="nameCtrl" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="email" formControlName="emailCtrl" required />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>SSN</mat-label>
+          <input matInput placeholder="SSN" formControlName="ssnCtrl" required />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Country</mat-label>
+          <input matInput placeholder="Country" formControlName="countryCtrl" required />
+        </mat-form-field>
+      </div>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <!-- #docregion label -->
-  <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
-  <!-- #enddocregion label -->
-    <form [formGroup]="secondFormGroup">
+  <!-- #Geo Location label -->
+  <mat-step [stepControl]="geoLocationFormGroup" label="Geo Location">
+    <!-- #enddocregion label -->
+    <form [formGroup]="geoLocationFormGroup">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Address 1</mat-label>
+          <input matInput formControlName="address1Ctrl" placeholder="House Number" required />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Address 2</mat-label>
+          <input matInput formControlName="address2Ctrl" placeholder="Street Name" required />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Zip Code</mat-label>
+          <input matInput formControlName="zipCtrl" placeholder="Zip Code" required />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="previousMedicalFormGroup" label="Previous Medical Details">
+    <!-- #enddocregion label -->
+    <form [formGroup]="previousMedicalFormGroup">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="descriptionCtrl" placeholder="Description" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Blood group</mat-label>
+          <input matInput formControlName="bloodGroupCtrl" placeholder="O+ve, B+ve" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="insuranceFormGroup" label="Insurance Details">
+    <!-- #enddocregion label -->
+    <form [formGroup]="insuranceFormGroup">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Company Name</mat-label>
+          <input matInput formControlName="companyCtrl" placeholder="Abc Company" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Policy Number</mat-label>
+          <input matInput formControlName="policyCtrl" placeholder="Policy Number" required />
+        </mat-form-field>
+      </div>
+      
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="paymentFormGroup" label="Payment">
+    <!-- #enddocregion label -->
+    <form [formGroup]="paymentFormGroup">
       <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-               required>
+        <mat-label>Amount</mat-label>
+        <input matInput formControlName="paymentCtrl" placeholder="Enter the amount" required />
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -31,15 +126,10 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
+    <p>Thanks for the time</p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
 </mat-stepper>
-
-
-<!-- Copyright 2021 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at https://angular.io/license -->

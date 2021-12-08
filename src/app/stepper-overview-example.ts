@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /**
  * @title Stepper overview
@@ -11,22 +11,36 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class StepperOverviewExample implements OnInit {
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  personDetailsFormGroup: FormGroup;
+  geoLocationFormGroup: FormGroup;
+  previousMedicalFormGroup: FormGroup;
+  insuranceFormGroup: FormGroup;
+  paymentFormGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required],
+    this.personDetailsFormGroup = this._formBuilder.group({
+      nameCtrl: ['', Validators.required],
+      emailCtrl: ['', Validators.required],
+      ssnCtrl: ['', Validators.required],
+      countryCtrl: ['', Validators.required],
     });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required],
+    this.geoLocationFormGroup = this._formBuilder.group({
+      address1Ctrl: ['', Validators.required],
+      address2Ctrl: ['', Validators.required],
+      zipCtrl: ['', Validators.required],
+    });
+    this.previousMedicalFormGroup = this._formBuilder.group({
+      descriptionCtrl: ['', Validators.required],
+      bloodGroupCtrl: ['', Validators.required],
+    });
+    this.insuranceFormGroup = this._formBuilder.group({
+      companyCtrl: ['', Validators.required],
+      policyCtrl: ['', Validators.required],
+    });
+    this.paymentFormGroup = this._formBuilder.group({
+      paymentCtrl: ['', Validators.required],
     });
   }
 }
-
-
-/**  Copyright 2021 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at https://angular.io/license */
